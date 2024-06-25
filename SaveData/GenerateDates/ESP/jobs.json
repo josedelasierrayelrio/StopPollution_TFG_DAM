@@ -1,0 +1,34 @@
+{
+	"poor": {
+		"jobs": [
+			"León de obra", "Limpista", "Vendecosas", "Cultiva plantas", "Sirviente de ricos",
+			"Antiende gente", "Hacedor de recetas", "Recetero", "Envía cosas", "Obrista de la obra", "Antiende mesas",
+			"Tienderista", "Tenderista", "Becarie", "Reciclista", "Aprendiz de todo", "Maestro de nada", "Ayudante de cocina", 
+			"Almacinista", "Lavaplatos", "Vendecalles", "Albañilista", "Cuida platicas", "Operarista en fábricas",
+			"Tejetelas", "Limpiaculos", "Ayuda gente", "Botonero de hotel", "Conductista de conductas",
+			"Conductista de vehículos baratos", "Guarda basuras", "Conduce gente", "Mecanista", "Electricista",
+			"Pintorista", "Dibujista de monigotes", "Trabaja maderas", "Vendecomidas", "Facha de la seguridad",
+			"Barrecalles", "Hacedor de recetas en la calle", "Cargante", "Pesadete", "Vendeperiodicos",
+			"Lutrista de zapatos", "Zapatista", "Vendefrutas", "Cuidaviejos", "Mendiguista",
+			"Limpiacalles", "Nini", "Artista", "Hacedora de gente para ricos", "Vendecuerpos callejeros",
+			"Editavídeos", "Psicologista con hambre", "Buscadorcista de verdad", "Filosofista", "Cientifista",
+			"Picaletras", "Sacaverdades", "Criabichos", "Cuidanimales"
+		]
+	},
+	"rich": {
+		"jobs": [
+			"Montampresas", "Defiendepijos en juzgados", "Curanderista", "Ingenierista", "Inversorista",
+			"Arquitecto", "Consultadineros", "CEO", "Director financiero", "Director ejecutivo",
+			"Operaórganos", "Miradientes", "Mirabolsas", "Descendiente de bobos", "Consultista",
+			"Crompra cosas", "Billetista", "Corredor tras bolsas", "Marketingcista", "Conduceaviones",
+			"Enseñacosas", "Enseñacosas en universidades", "Chef", "Cineasta", "Artista especulativista",
+			"Modistista", "Diseñatelas", "Despedidorista de pobres", "Discursista vacío", "Psicologista llena buche",
+			"Economista", "Traidorcista", "Decidefinanzas", "Analista de cosas", "Picaletras con dinero",
+			"Terapeutista premoderno", "Sacamentiras", "Sacamentiras televisivo", "Sacadientes", "Zoologista",
+			"Mánager de algo", "Analista de datos", "Gerente en las alturas", "Tecnologista", "Dirigeventas",
+			"Analista de negocios", "Contador", "Asesor financiero", "Analista de inversiones",
+			"Estafadorista de pobres", "Compraniños", "Compraesclavos", "Elonmuskiano", "Facha", 
+			"Yunquista", "De las cloacas", "Meditabundo", "Genio tecnologista"
+		]
+	}
+}

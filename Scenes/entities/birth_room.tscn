@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://c47wwyove4gvl"]
+
+[ext_resource type="Material" uid="uid://cy7iwjou25tgf" path="res://Resources/tres/smooth_pixel_shader_material.tres" id="1_xsur4"]
+[ext_resource type="Texture2D" uid="uid://cftcg70vuqnp1" path="res://Resources/Tileset/buildings/birth_room.png" id="2_iq1sj"]
+[ext_resource type="Script" path="res://Scripts/Entities/birth_room.gd" id="3_jpr48"]
+[ext_resource type="LabelSettings" uid="uid://o82i14c0vrio" path="res://Resources/tres/interact_label_settings.tres" id="4_kt05b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr66q"]
+size = Vector2(27, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rb4kh"]
+size = Vector2(64, 64)
+
+[node name="BirthRoom" type="Sprite2D" groups=["birthroom"]]
+texture_filter = 1
+material = ExtResource("1_xsur4")
+texture = ExtResource("2_iq1sj")
+hframes = 7
+script = ExtResource("3_jpr48")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_yr66q")
+
+[node name="InteractLabel" type="Label" parent="."]
+visible = false
+light_mask = 32
+visibility_layer = 32
+z_index = 6
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -22.0
+offset_right = 184.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[Q] beget offspring"
+label_settings = ExtResource("4_kt05b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 12)
+
+[node name="CollectShape" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rb4kh")
+
+[node name="BirthTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="BirthTimer" to="." method="_on_birth_timer_timeout"]

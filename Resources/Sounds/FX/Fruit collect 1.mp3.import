@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bpobegs6twk4"
+path="res://.godot/imported/Fruit collect 1.mp3-3046105cce1a29f028a76309dc32657b.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/FX/Fruit collect 1.mp3"
+dest_files=["res://.godot/imported/Fruit collect 1.mp3-3046105cce1a29f028a76309dc32657b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

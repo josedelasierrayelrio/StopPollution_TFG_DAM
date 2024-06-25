@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://c0u0wjktdxrmo"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/mouse_manager.gd" id="1_xvqso"]
+[ext_resource type="SpriteFrames" uid="uid://dbunpvtwdbkbl" path="res://Resources/tres/cursor_sprite_frames.tres" id="3_2d4xq"]
+[ext_resource type="LabelSettings" uid="uid://vvygoxaewh6j" path="res://Resources/tres/secundary_label_settings.tres" id="3_w573e"]
+[ext_resource type="LabelSettings" uid="uid://bocf433xt1xjl" path="res://Resources/tres/tertiary_label_settings.tres" id="4_35pqh"]
+[ext_resource type="SpriteFrames" uid="uid://cxaj57rvoubdr" path="res://Resources/tres/mouse_grid_sprite_frames-tres.tres" id="4_v1v6e"]
+[ext_resource type="SpriteFrames" uid="uid://c3lq5o3vdadce" path="res://Resources/tres/selected_area_sprite_frames.tres" id="5_1v4p5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu4od"]
+size = Vector2(16, 16)
+
+[node name="MouseManager" type="Node2D" groups=["mouse"]]
+texture_filter = 2
+script = ExtResource("1_xvqso")
+
+[node name="MouseSprite" type="AnimatedSprite2D" parent="."]
+light_mask = 32
+visibility_layer = 32
+z_index = 30
+texture_filter = 1
+use_parent_material = true
+sprite_frames = ExtResource("3_2d4xq")
+animation = &"clic"
+
+[node name="InteractLabel" type="Label" parent="MouseSprite"]
+visible = false
+light_mask = 32
+visibility_layer = 32
+z_index = 30
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -47.0
+offset_top = -50.0
+offset_right = 133.0
+offset_bottom = -18.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "[Q] to Assemble"
+label_settings = ExtResource("3_w573e")
+
+[node name="NoticeLabel" type="Label" parent="MouseSprite"]
+visible = false
+light_mask = 32
+visibility_layer = 32
+z_index = 30
+texture_filter = 1
+offset_left = 12.0
+offset_top = -34.0
+offset_right = 296.0
+offset_bottom = 33.0
+scale = Vector2(0.5, 0.5)
+text = "[C] to clean blood"
+label_settings = ExtResource("3_w573e")
+
+[node name="CountLabel" type="Label" parent="MouseSprite"]
+visible = false
+light_mask = 32
+visibility_layer = 32
+z_index = 30
+texture_filter = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 13.0
+offset_top = -17.0
+offset_right = 30.0
+offset_bottom = -1.0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "[3]"
+label_settings = ExtResource("4_35pqh")
+
+[node name="GridSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+light_mask = 32
+visibility_layer = 32
+z_index = 2
+texture_filter = 1
+use_parent_material = true
+sprite_frames = ExtResource("4_v1v6e")
+frame_progress = 0.314795
+
+[node name="SelectionArea" type="Area2D" parent="." groups=["mouse_selection_area"]]
+visible = false
+light_mask = 32
+visibility_layer = 32
+z_index = 2
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+monitorable = false
+
+[node name="SelectionAreaSprite" type="AnimatedSprite2D" parent="SelectionArea"]
+light_mask = 32
+visibility_layer = 32
+z_index = 1
+texture_filter = 1
+sprite_frames = ExtResource("5_1v4p5")
+animation = &"unic_default"
+
+[node name="SelectionAreaShape" type="CollisionShape2D" parent="SelectionArea"]
+light_mask = 0
+visibility_layer = 32
+shape = SubResource("RectangleShape2D_pu4od")
+
+[connection signal="body_entered" from="SelectionArea" to="." method="_on_selection_area_body_entered"]
+[connection signal="body_exited" from="SelectionArea" to="." method="_on_selection_area_body_exited"]

@@ -1,0 +1,159 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4xp0w52hwj68"]
+
+[ext_resource type="Texture2D" uid="uid://ceqt72a6dvh3m" path="res://Resources/Tileset/pufs/shadow.png" id="1_2o3lj"]
+[ext_resource type="Script" path="res://Scripts/Behaviour/b_puf.gd" id="1_a7dnk"]
+[ext_resource type="AnimationLibrary" uid="uid://ig4s8klxx25" path="res://Resources/Animations/Pufs/Pufs.res" id="2_2xooe"]
+[ext_resource type="FontFile" uid="uid://bsyvuiskmanxx" path="res://Resources/Fonts/GrapeSoda.ttf" id="4_ha86j"]
+[ext_resource type="Texture2D" uid="uid://cjkyqlgkn2ami" path="res://Resources/Tileset/pufs/poor.png" id="4_mgop1"]
+[ext_resource type="Texture2D" uid="uid://b66mb70cikal5" path="res://Resources/Tileset/pufs/Selected_puf/Selected_e.png" id="7_jgdqv"]
+[ext_resource type="Texture2D" uid="uid://c6pua88wjwxqw" path="res://Resources/Tileset/pufs/Selected_puf/Selected_i.png" id="8_2ot62"]
+
+[sub_resource type="Animation" id="Animation_r0hht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ngbqv"]
+_data = {
+"RESET": SubResource("Animation_r0hht")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ug8ye"]
+size = Vector2(14, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qvs0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_jgdqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2ot62")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn6ww"]
+size = Vector2(12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13fw2"]
+radius = 4.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["pufs"]]
+light_mask = 10
+visibility_layer = 2
+scale = Vector2(0.7, 0.7)
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+script = ExtResource("1_a7dnk")
+wait_time_move = 0.2
+can_assemble = null
+move_speed = null
+drag_speed = null
+global_mouse_position = null
+local_mouse_position = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ngbqv"),
+"Pufs": ExtResource("2_2xooe")
+}
+
+[node name="ShapePuf" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ug8ye")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+position = Vector2(0, 10)
+texture = ExtResource("1_2o3lj")
+
+[node name="SpritePuf" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+position = Vector2(0, 3)
+texture = ExtResource("4_mgop1")
+hframes = 4
+vframes = 3
+
+[node name="SelectedPuf" type="AnimatedSprite2D" parent="."]
+visible = false
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_4qvs0")
+animation = &"selected"
+
+[node name="InteractionComponents" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(0, 4)
+scale = Vector2(3, 3)
+
+[node name="InteractLabel" type="Label" parent="InteractionComponents"]
+visible = false
+light_mask = 16
+visibility_layer = 16
+z_index = 20
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.6667
+offset_top = -10.3333
+offset_right = 92.3333
+offset_bottom = 5.66667
+grow_horizontal = 2
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("4_ha86j")
+text = "Placeholder Text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AssembleArea" type="Area2D" parent="InteractionComponents"]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+
+[node name="AssembleShape" type="CollisionShape2D" parent="InteractionComponents/AssembleArea"]
+position = Vector2(0, -0.333)
+shape = SubResource("RectangleShape2D_bn6ww")
+debug_color = Color(0.164706, 0.643137, 0, 0.113725)
+
+[node name="RepulsionArea" type="Area2D" parent="InteractionComponents"]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+
+[node name="RepulsionShape" type="CollisionShape2D" parent="InteractionComponents/RepulsionArea"]
+position = Vector2(0, -0.333333)
+shape = SubResource("CircleShape2D_13fw2")
+debug_color = Color(0.956863, 0, 0.537255, 0.0745098)
+
+[node name="WaitTime" type="Timer" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

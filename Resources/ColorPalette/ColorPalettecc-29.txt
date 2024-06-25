@@ -1,0 +1,35 @@
+;paint.net Palette File
+;Downloaded from Lospec.com/palette-list
+;Palette Name: CC-29
+;Description: 
+;Colors: 29
+FF f2f0e5 # Marfil (242, 240, 229)
+FF b8b5b9 # Gris claro (184, 181, 185)
+FF 868188 # Gris medio (134, 129, 136)
+FF 646365 # Gris oscuro (100, 99, 101)
+FF 45444f # Antracita (69, 68, 79)
+FF 3a3858 # Índigo oscuro (58, 56, 88)
+FF 212123 # Negro (33, 33, 35)
+FF 352b42 # Púrpura oscuro (53, 43, 66)
+FF 43436a # Azul marino (67, 67, 106)
+FF 4b80ca # Azul eléctrico (75, 128, 202)
+FF 68c2d3 # Cian claro (104, 194, 211)
+FF a2dcc7 # Turquesa claro (162, 220, 199)
+FF ede19e # Beige claro (237, 225, 158)
+FF d3a068 # Naranja claro (211, 160, 104)
+FF b45252 # Rojo terroso (180, 82, 82)
+FF 6a536e # Púrpura (106, 83, 110)
+FF 4b4158 # Gris púrpura (75, 65, 88)
+FF 80493a # Marrón oscuro (128, 73, 58)
+FF a77b5b # Marrón claro (167, 123, 91)
+FF e5ceb4 # Crema (229, 206, 180)
+FF c2d368 # Lima claro (194, 211, 104)
+FF 8ab060 # Verde oliva claro (138, 176, 96)
+FF 567b79 # Verde pino (86, 123, 121)
+FF 4e584a # Verde oscuro (78, 88, 74)
+FF 7b7243 # Verde oliva (123, 114, 67)
+FF b2b47e # Verde musgo (178, 180, 126)
+FF edc8c4 # Rosa claro (237, 200, 196)
+FF cf8acb # Lila (207, 138, 203)
+FF 5f556a # Violeta oscuro (95, 85, 106)
+

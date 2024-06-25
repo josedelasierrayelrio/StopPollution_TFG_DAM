@@ -1,0 +1,142 @@
+[gd_scene load_steps=13 format=3 uid="uid://b4xp0w52hwj68"]
+
+[ext_resource type="Texture2D" uid="uid://ceqt72a6dvh3m" path="res://Resources/Tileset/pufs/shadow.png" id="1_2o3lj"]
+[ext_resource type="Script" path="res://Scripts/Behaviour/b_puf.gd" id="1_a7dnk"]
+[ext_resource type="FontFile" uid="uid://bsyvuiskmanxx" path="res://Resources/Fonts/GrapeSoda.ttf" id="4_ha86j"]
+[ext_resource type="Texture2D" uid="uid://ba5dmlhh28fot" path="res://Resources/Tileset/pufs/poorv3.png" id="4_ibg2n"]
+[ext_resource type="AnimationLibrary" uid="uid://c10xbuskq6eb3" path="res://Animations/Pufs/Pufs_animations.res" id="5_50ihj"]
+[ext_resource type="Texture2D" uid="uid://b66mb70cikal5" path="res://Resources/Tileset/pufs/Selected_puf/Selected_e.png" id="7_jgdqv"]
+[ext_resource type="Texture2D" uid="uid://c6pua88wjwxqw" path="res://Resources/Tileset/pufs/Selected_puf/Selected_i.png" id="8_2ot62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ug8ye"]
+size = Vector2(14, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4qvs0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_jgdqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2ot62")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 3.0
+}]
+
+[sub_resource type="Animation" id="Animation_dgeb0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpritePuf:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shadow:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1m6tk"]
+_data = {
+"RESET": SubResource("Animation_dgeb0")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bimhb"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+light_mask = 10
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 2
+input_pickable = true
+script = ExtResource("1_a7dnk")
+
+[node name="InteractionArea" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_ug8ye")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+position = Vector2(0, 10)
+texture = ExtResource("1_2o3lj")
+
+[node name="SpritePuf" type="Sprite2D" parent="."]
+light_mask = 14
+visibility_layer = 2
+texture_filter = 1
+position = Vector2(0, 3)
+texture = ExtResource("4_ibg2n")
+hframes = 4
+vframes = 3
+frame = 1
+
+[node name="SelectedPuf" type="AnimatedSprite2D" parent="."]
+visible = false
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_4qvs0")
+animation = &"selected"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1m6tk"),
+"Pufs": ExtResource("5_50ihj")
+}
+
+[node name="InteractionComponents" type="Node2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, 4)
+scale = Vector2(3, 3)
+
+[node name="InteractArea" type="Area2D" parent="InteractionComponents"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponents/InteractArea"]
+shape = SubResource("CircleShape2D_bimhb")
+
+[node name="InteractLabel" type="Label" parent="InteractionComponents"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_ha86j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaitTime" type="Timer" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3momwwg46li7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ia8qh"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_2",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation_3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"poor_02",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"rich",
+"speed": 5.0
+}]
+
+[node name="CadaverPuf" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ia8qh")
+animation = &"new_animation_3"

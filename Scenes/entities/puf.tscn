@@ -1,0 +1,265 @@
+[gd_scene load_steps=18 format=3 uid="uid://b4xp0w52hwj68"]
+
+[ext_resource type="Script" path="res://Scripts/Behaviour/b_puf.gd" id="1_q7ds5"]
+[ext_resource type="AnimationLibrary" uid="uid://ig4s8klxx25" path="res://Resources/Animations/Pufs/Pufs.res" id="2_54i3k"]
+[ext_resource type="LabelSettings" uid="uid://vvygoxaewh6j" path="res://Resources/tres/secundary_label_settings.tres" id="2_i6v8b"]
+[ext_resource type="FontFile" uid="uid://bsyvuiskmanxx" path="res://Resources/Fonts/GrapeSoda.ttf" id="2_lhnqg"]
+[ext_resource type="Texture2D" uid="uid://ceqt72a6dvh3m" path="res://Resources/Tileset/pufs/shadow.png" id="3_dpvcn"]
+[ext_resource type="Material" uid="uid://cy7iwjou25tgf" path="res://Resources/tres/smooth_pixel_shader_material.tres" id="6_eyk88"]
+[ext_resource type="Texture2D" uid="uid://cjkyqlgkn2ami" path="res://Resources/Tileset/pufs/poor.png" id="8_em6a3"]
+[ext_resource type="Texture2D" uid="uid://b66mb70cikal5" path="res://Resources/Tileset/pufs/Selected_puf/Selected_e.png" id="9_c25bi"]
+[ext_resource type="PackedScene" uid="uid://cxplgw56ji1xh" path="res://Scenes/entities/smash_animation.tscn" id="9_p56fm"]
+[ext_resource type="Texture2D" uid="uid://c6pua88wjwxqw" path="res://Resources/Tileset/pufs/Selected_puf/Selected_i.png" id="10_qp6ew"]
+
+[sub_resource type="Animation" id="Animation_r0hht"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shadow:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpritePuf:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpritePuf:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpritePuf:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpritePuf:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpritePuf:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Shadow:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ngbqv"]
+_data = {
+"RESET": SubResource("Animation_r0hht")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ug8ye"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rlhu7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_c25bi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qp6ew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8cgo"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7sdfx"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn6ww"]
+size = Vector2(16, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["pufs"]]
+light_mask = 2
+visibility_layer = 2
+z_index = 4
+texture_filter = 1
+material = ExtResource("6_eyk88")
+collision_layer = 15
+collision_mask = 2
+input_pickable = true
+up_direction = Vector2(0, 1)
+platform_floor_layers = 4294901761
+platform_wall_layers = 10
+script = ExtResource("1_q7ds5")
+
+[node name="NameLabel" type="Label" parent="."]
+light_mask = 32
+visibility_layer = 32
+z_index = 1
+texture_filter = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -17.0
+offset_right = 252.0
+offset_bottom = 15.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+label_settings = ExtResource("2_i6v8b")
+
+[node name="InteractLabel" type="Label" parent="."]
+light_mask = 16
+visibility_layer = 16
+z_index = 20
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_top = -32.0
+offset_right = 153.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 6
+size_flags_vertical = 2
+theme_override_fonts/font = ExtResource("2_lhnqg")
+label_settings = ExtResource("2_i6v8b")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ngbqv"),
+"Pufs": ExtResource("2_54i3k")
+}
+
+[node name="ShapePuf" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_ug8ye")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 2
+use_parent_material = true
+position = Vector2(0, 9)
+texture = ExtResource("3_dpvcn")
+
+[node name="SpritePuf" type="Sprite2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+texture_filter = 1
+use_parent_material = true
+position = Vector2(0, 2)
+texture = ExtResource("8_em6a3")
+hframes = 4
+vframes = 4
+
+[node name="SelectedPuf" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 2)
+sprite_frames = SubResource("SpriteFrames_rlhu7")
+frame_progress = 0.414586
+
+[node name="SmashSprite" parent="." instance=ExtResource("9_p56fm")]
+visible = false
+light_mask = 2
+visibility_layer = 2
+texture_filter = 2
+use_parent_material = true
+position = Vector2(1.19209e-07, 1.90735e-06)
+
+[node name="InteractionAreas" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(-1, 2)
+scale = Vector2(3, 3)
+
+[node name="MouseArea" type="Area2D" parent="InteractionAreas"]
+
+[node name="MouseShape" type="CollisionShape2D" parent="InteractionAreas/MouseArea"]
+light_mask = 0
+visibility_layer = 0
+shape = SubResource("RectangleShape2D_y8cgo")
+
+[node name="RepulsionArea" type="Area2D" parent="InteractionAreas"]
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 2
+
+[node name="RepulsionShape" type="CollisionShape2D" parent="InteractionAreas/RepulsionArea"]
+shape = SubResource("RectangleShape2D_7sdfx")
+debug_color = Color(0.870588, 0, 0.0117647, 0.113725)
+
+[node name="AssembleArea" type="Area2D" parent="InteractionAreas"]
+visible = false
+light_mask = 2
+visibility_layer = 2
+collision_layer = 2
+collision_mask = 2
+
+[node name="AssembleShape" type="CollisionShape2D" parent="InteractionAreas/AssembleArea"]
+shape = SubResource("RectangleShape2D_bn6ww")
+debug_color = Color(0.164706, 0.643137, 0, 0.113725)
+
+[node name="WaitTime" type="Timer" parent="."]
+
+[connection signal="input_event" from="InteractionAreas/MouseArea" to="." method="_on_mouse_area_input_event"]
+[connection signal="mouse_entered" from="InteractionAreas/MouseArea" to="." method="_on_mouse_area_mouse_entered"]
+[connection signal="mouse_exited" from="InteractionAreas/MouseArea" to="." method="_on_mouse_area_mouse_exited"]
+[connection signal="body_entered" from="InteractionAreas/RepulsionArea" to="." method="_on_repulsion_area_body_entered"]
+[connection signal="body_exited" from="InteractionAreas/RepulsionArea" to="." method="_on_repulsion_area_body_exited"]

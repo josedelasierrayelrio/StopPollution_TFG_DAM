@@ -1,0 +1,13 @@
+;paint.net Palette File
+;Downloaded from Lospec.com/palette-list
+;Palette Name: GB NOODS
+;Description: Enjoy this 2 bit set of nude tones. Low sat with decent contrast for a softer aesthetic.
+;Colors: 4
+FF 4c4139 # Marron
+FF 9a747f # Marron rojizo
+FF ccb4a4 # Marron crema - Skin puf
+FF e5dacd # Amarillo amarronado 
+
+# More colors
+FF 88985b # Verde clarito
+FF 667f59 # Verde oscuro

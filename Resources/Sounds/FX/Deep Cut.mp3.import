@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cm614nns1k14q"
+path="res://.godot/imported/Deep Cut.mp3-2731776ea71c7bbf5c13d378252d3b1e.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/FX/Deep Cut.mp3"
+dest_files=["res://.godot/imported/Deep Cut.mp3-2731776ea71c7bbf5c13d378252d3b1e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

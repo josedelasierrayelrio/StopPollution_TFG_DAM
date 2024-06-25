@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0w50nfke8of1"
+path="res://.godot/imported/Boss hit 1.mp3-d16fc709b946b49c8d6ed6794fa06af4.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/FX/Boss hit 1.mp3"
+dest_files=["res://.godot/imported/Boss hit 1.mp3-d16fc709b946b49c8d6ed6794fa06af4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

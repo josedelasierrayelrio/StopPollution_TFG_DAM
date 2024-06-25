@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv25000gjlpwv"]
+
+[ext_resource type="Texture2D" uid="uid://brdro4l4wfqlq" path="res://Resources/Tileset/pufs/blood_stain.png" id="1_eaxua"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rods"]
+atlas = ExtResource("1_eaxua")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq5xv"]
+atlas = ExtResource("1_eaxua")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u4ne"]
+atlas = ExtResource("1_eaxua")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yk4u"]
+atlas = ExtResource("1_eaxua")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efav5"]
+atlas = ExtResource("1_eaxua")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_os5re"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rods")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq5xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u4ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yk4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efav5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="BloodStain" type="AnimatedSprite2D"]
+light_mask = 8
+visibility_layer = 8
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_os5re")
+frame = 4
+frame_progress = 0.680905

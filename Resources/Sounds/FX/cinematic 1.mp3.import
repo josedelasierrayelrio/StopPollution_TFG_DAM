@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b21qmg3k18mec"
+path="res://.godot/imported/cinematic 1.mp3-7b1c0e9bafd742990af3974b2bf90cb0.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/FX/cinematic 1.mp3"
+dest_files=["res://.godot/imported/cinematic 1.mp3-7b1c0e9bafd742990af3974b2bf90cb0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

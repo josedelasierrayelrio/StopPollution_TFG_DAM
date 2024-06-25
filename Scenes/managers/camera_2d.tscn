@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c30hichtn61t1"]
+
+[ext_resource type="Script" path="res://Scripts/Behaviour/b_camera_2d.gd" id="1_ymm1o"]
+
+[node name="Camera2D" type="Camera2D" groups=["camera"]]
+texture_filter = 1
+zoom = Vector2(2, 2)
+limit_left = -100
+limit_top = -100
+limit_right = 1380
+limit_bottom = 810
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+rotation_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("1_ymm1o")
+multiplier_speed = 3.5

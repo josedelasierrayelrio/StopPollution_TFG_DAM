@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cl76bcgy7g0e8"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/manager_entities.gd" id="1_k17n5"]
+
+[node name="ManagerEntities" type="Node2D" groups=["manager_pufs"]]
+z_index = 2
+texture_filter = 1
+script = ExtResource("1_k17n5")
+
+[node name="TimerSpawn" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimerSpawn" to="." method="_on_timer_spawn_timeout"]

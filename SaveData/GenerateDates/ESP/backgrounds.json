@@ -1,0 +1,64 @@
+{
+	"poor baby": {
+		"backgrounds": [
+			"{name} tiene toda la vida por delante para disfrutar de la esclavitud."
+		]
+	},
+	"poor": {
+		"backgrounds": [
+			"{name}, a la edad de {years}, lleva toda su vida sufriendo el acoso de la clase pudiente y quiere quemarlos a todos.",
+			"{name}, a la edad de {years}, ha pasado por tres operaciones gracias a la seguridad social. Sin ella estaría bajo tierra.",
+			"{name}, a la edad de {years}, ha decidido salir a protestar por los negacionistas del cambio climático.",
+			"{name}, a la edad de {years}, se enfadó tanto en las protestas por la educación que le enseñó a la policía como curarse de la vida.",
+			"{name}, a la edad de {years}, acabó bebiendo hasta morir debido a la",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, "
+		]
+	},
+	"middle": {
+		"backgrounds": [
+			"{name}, a la edad de {years}, cree que pagando 50 pufines al mes va a poder operarse el cáncer que el tabaco le está causando.",
+			"{name}, a la edad de {years}, se levanta todos los días junto al sol para ver quién puede hacer más flexiones; si él o el flipao de arriba.",
+			"{name}, a la edad de {years}, quiere se juez para .",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, "
+		]
+	},
+	"rich baby": {
+		"backgrounds": [
+			"{name} heredará la empresa de su adre y disfrutará del sufrimiento ajeno."
+		]
+	},
+	"rich": {
+		"backgrounds": [
+			"{name}, a la edad de {years}, ha logrado dirigir varias empresas en las que tan solo debía darle nombre y decidir a quiénes iba a explotar. Todo un orgullo para los CEO",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, ",
+			"{name}, a la edad de {years}, "
+		]
+	}
+}

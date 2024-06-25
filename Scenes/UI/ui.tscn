@@ -1,0 +1,465 @@
+[gd_scene load_steps=15 format=3 uid="uid://bg2ohhatacu6c"]
+
+[ext_resource type="FontFile" uid="uid://bsyvuiskmanxx" path="res://Resources/Fonts/GrapeSoda.ttf" id="1_0nux4"]
+[ext_resource type="StyleBox" uid="uid://bvrmbi7cgm6yg" path="res://Resources/UI/Paneles/panel_multiple_select.tres" id="1_7mjoj"]
+[ext_resource type="Script" path="res://Scripts/ui.gd" id="1_a8sun"]
+[ext_resource type="LabelSettings" uid="uid://bvd1eag1a4sun" path="res://Resources/tres/debug_labels.tres" id="4_hep84"]
+[ext_resource type="LabelSettings" uid="uid://dscjv5p181cqc" path="res://Resources/tres/debug_labels_result.tres" id="5_hwmkk"]
+[ext_resource type="LabelSettings" uid="uid://u6qs3exbx532" path="res://Resources/tres/text_ui_labels.tres" id="5_vmpy2"]
+[ext_resource type="LabelSettings" uid="uid://c6lssx3ofufsc" path="res://Resources/tres/polution_labels_result.tres" id="6_rsfbn"]
+[ext_resource type="LabelSettings" uid="uid://ch3y84cgejldc" path="res://Resources/tres/year_labels_result.tres" id="7_ggdfu"]
+[ext_resource type="PackedScene" uid="uid://dgfxikjwkkie8" path="res://Scenes/UI/minumplus_anim.tscn" id="9_dpc7w"]
+[ext_resource type="LabelSettings" uid="uid://vvygoxaewh6j" path="res://Resources/tres/secundary_label_settings.tres" id="9_gndac"]
+[ext_resource type="Texture2D" uid="uid://btq5og5qmqd56" path="res://Resources/UI/arrows.png" id="10_o8mrm"]
+[ext_resource type="AnimationLibrary" uid="uid://ge5l8b021ce" path="res://Resources/Animations/Pollution.res" id="11_g2ukp"]
+
+[sub_resource type="Animation" id="Animation_y36gn"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(290, 66)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8bhhg"]
+_data = {
+"RESET": SubResource("Animation_y36gn")
+}
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_a8sun")
+
+[node name="PanelDraw" type="Panel" parent="."]
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+theme_override_styles/panel = ExtResource("1_7mjoj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 24.0
+offset_bottom = 97.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="InfoContainer" type="HBoxContainer" parent="VBoxContainer"]
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="PoblationContainer" type="VBoxContainer" parent="VBoxContainer/InfoContainer"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_constants/separation = -7
+alignment = 1
+
+[node name="PoResult" type="Label" parent="VBoxContainer/InfoContainer/PoblationContainer" groups=["ui_labels_result"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "0"
+label_settings = ExtResource("7_ggdfu")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Poblation" type="Label" parent="VBoxContainer/InfoContainer/PoblationContainer"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Poblation"
+label_settings = ExtResource("5_vmpy2")
+horizontal_alignment = 1
+
+[node name="PollutionContainer" type="VBoxContainer" parent="VBoxContainer/InfoContainer"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_constants/separation = -7
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/InfoContainer/PollutionContainer"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PResult" type="Label" parent="VBoxContainer/InfoContainer/PollutionContainer/HBoxContainer" groups=["ui_labels_result"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "12.25"
+label_settings = ExtResource("6_rsfbn")
+
+[node name="PercentResult" type="Label" parent="VBoxContainer/InfoContainer/PollutionContainer/HBoxContainer"]
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "%"
+label_settings = ExtResource("7_ggdfu")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Pollution" type="Label" parent="VBoxContainer/InfoContainer/PollutionContainer"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Polution"
+label_settings = ExtResource("5_vmpy2")
+horizontal_alignment = 1
+
+[node name="YearContainer" type="VBoxContainer" parent="VBoxContainer/InfoContainer"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 7
+theme_override_constants/separation = -7
+alignment = 1
+
+[node name="YResult" type="Label" parent="VBoxContainer/InfoContainer/YearContainer" groups=["ui_labels_result"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "0"
+label_settings = ExtResource("7_ggdfu")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Years" type="Label" parent="VBoxContainer/InfoContainer/YearContainer"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Year"
+label_settings = ExtResource("5_vmpy2")
+horizontal_alignment = 1
+
+[node name="SubinfoContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="SIPoblation" type="VBoxContainer" parent="VBoxContainer/SubinfoContainer"]
+light_mask = 32
+visibility_layer = 32
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = -8
+
+[node name="NYContainer" type="HBoxContainer" parent="VBoxContainer/SubinfoContainer/SIPoblation"]
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="NewPuf" type="Label" parent="VBoxContainer/SubinfoContainer/SIPoblation/NYContainer" groups=["ui_labels_result"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Next Puf in:"
+label_settings = ExtResource("9_gndac")
+
+[node name="NPResult" type="Label" parent="VBoxContainer/SubinfoContainer/SIPoblation/NYContainer" groups=["ui_labels_result"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "0 "
+label_settings = ExtResource("9_gndac")
+horizontal_alignment = 2
+
+[node name="PoorPoblation" type="HBoxContainer" parent="VBoxContainer/SubinfoContainer/SIPoblation"]
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="WorkerLabel" type="Label" parent="VBoxContainer/SubinfoContainer/SIPoblation/PoorPoblation"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Workforce:"
+label_settings = ExtResource("9_gndac")
+vertical_alignment = 1
+
+[node name="WResult" type="Label" parent="VBoxContainer/SubinfoContainer/SIPoblation/PoorPoblation" groups=["ui_labels_result"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "0 "
+label_settings = ExtResource("9_gndac")
+horizontal_alignment = 2
+
+[node name="RichPoblation" type="HBoxContainer" parent="VBoxContainer/SubinfoContainer/SIPoblation"]
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="BourgeoisLabel" type="Label" parent="VBoxContainer/SubinfoContainer/SIPoblation/RichPoblation"]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Dirty bourgeois:"
+label_settings = ExtResource("9_gndac")
+
+[node name="Spacer" type="Label" parent="VBoxContainer/SubinfoContainer/SIPoblation/RichPoblation"]
+layout_mode = 2
+text = "     "
+
+[node name="BResult" type="Label" parent="VBoxContainer/SubinfoContainer/SIPoblation/RichPoblation" groups=["ui_labels_result"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "0 "
+label_settings = ExtResource("9_gndac")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SIPollution" type="VBoxContainer" parent="VBoxContainer/SubinfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SIYear" type="VBoxContainer" parent="VBoxContainer/SubinfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+visible = false
+light_mask = 16
+visibility_layer = 16
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="DebugContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_constants/separation = -6
+alignment = 1
+
+[node name="DebugLabels" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Debug_statistics:"
+label_settings = ExtResource("4_hep84")
+
+[node name="FPSContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/DebugContainer"]
+layout_mode = 2
+
+[node name="FPS" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer/FPSContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "FPS:"
+label_settings = ExtResource("4_hep84")
+
+[node name="F_result" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer/FPSContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "1920"
+label_settings = ExtResource("5_hwmkk")
+
+[node name="ResolutionContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/DebugContainer"]
+layout_mode = 2
+
+[node name="Resolution" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer/ResolutionContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Resolution:"
+label_settings = ExtResource("4_hep84")
+
+[node name="R_result" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer/ResolutionContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "1920"
+label_settings = ExtResource("5_hwmkk")
+
+[node name="MouseContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/DebugContainer"]
+layout_mode = 2
+
+[node name="MouseMove" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer/MouseContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Camera Move Mouse"
+label_settings = ExtResource("4_hep84")
+
+[node name="MMButton" type="CheckButton" parent="VBoxContainer/PanelContainer/DebugContainer/MouseContainer" groups=["debug"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+tooltip_text = "Cambia el movimiento de la cámara y activa el del mouse"
+icon_alignment = 1
+
+[node name="InvertContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer/DebugContainer"]
+layout_mode = 2
+
+[node name="InvertPollution" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer/InvertContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Invert Pollution"
+label_settings = ExtResource("4_hep84")
+
+[node name="IPButton" type="CheckButton" parent="VBoxContainer/PanelContainer/DebugContainer/InvertContainer" groups=["debug"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+tooltip_text = "Cambia el movimiento de la cámara y activa el del mouse"
+icon_alignment = 1
+
+[node name="ChangeSpawn" type="HBoxContainer" parent="VBoxContainer/PanelContainer/DebugContainer"]
+layout_mode = 2
+
+[node name="ToogleSpawn" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer/ChangeSpawn"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Toogle Spawn Puf"
+label_settings = ExtResource("4_hep84")
+
+[node name="TSButton" type="CheckButton" parent="VBoxContainer/PanelContainer/DebugContainer/ChangeSpawn" groups=["debug"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+tooltip_text = "Cambia el movimiento de la cámara y activa el del mouse"
+icon_alignment = 1
+
+[node name="ResetGame" type="HBoxContainer" parent="VBoxContainer/PanelContainer/DebugContainer"]
+layout_mode = 2
+
+[node name="Reset" type="Label" parent="VBoxContainer/PanelContainer/DebugContainer/ResetGame"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0nux4")
+text = "Reset Game"
+label_settings = ExtResource("4_hep84")
+
+[node name="ResetButton" type="CheckButton" parent="VBoxContainer/PanelContainer/DebugContainer/ResetGame" groups=["debug"]]
+light_mask = 16
+visibility_layer = 16
+layout_mode = 2
+tooltip_text = "Cambia el movimiento de la cámara y activa el del mouse"
+icon_alignment = 1
+
+[node name="AnimationContainer" type="HBoxContainer" parent="."]
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 100.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="PoblationContainer" type="VBoxContainer" parent="AnimationContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme_override_constants/separation = -7
+alignment = 1
+
+[node name="PoblationSprite" parent="AnimationContainer/PoblationContainer" groups=["ui_statistics_animations"] instance=ExtResource("9_dpc7w")]
+visible = false
+light_mask = 16
+visibility_layer = 16
+position = Vector2(285, 50)
+
+[node name="PollutionContainer" type="VBoxContainer" parent="AnimationContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme_override_constants/separation = -7
+alignment = 1
+
+[node name="PollutionSprite" type="Sprite2D" parent="AnimationContainer/PollutionContainer" groups=["ui_statistics_animations"]]
+visible = false
+light_mask = 32
+visibility_layer = 32
+texture_filter = 1
+position = Vector2(290, 66)
+scale = Vector2(2, 2)
+texture = ExtResource("10_o8mrm")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationContainer/PollutionContainer/PollutionSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_8bhhg"),
+"Pollution": ExtResource("11_g2ukp")
+}
+
+[node name="YearContainer" type="VBoxContainer" parent="AnimationContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+theme_override_constants/separation = -7
+alignment = 1
+
+[node name="YearSprite" parent="AnimationContainer/YearContainer" groups=["ui_statistics_animations"] instance=ExtResource("9_dpc7w")]
+visible = false
+light_mask = 16
+visibility_layer = 16
+position = Vector2(260, 50)

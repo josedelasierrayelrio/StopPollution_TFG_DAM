@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://id603hrgmmgx"
+path="res://.godot/imported/Dialog voice 3.mp3-b6f42fb4078b09aeb604ff3ffa0352c1.mp3str"
+
+[deps]
+
+source_file="res://Resources/Sounds/FX/Dialog voice 3.mp3"
+dest_files=["res://.godot/imported/Dialog voice 3.mp3-b6f42fb4078b09aeb604ff3ffa0352c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

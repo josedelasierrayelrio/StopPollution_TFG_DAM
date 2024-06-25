@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxplgw56ji1xh"]
+
+[ext_resource type="Texture2D" uid="uid://bk2dyeemdtrvq" path="res://Resources/UI/Hands/cursores.png" id="1_lwvpt"]
+[ext_resource type="AnimationLibrary" uid="uid://xtu07u24q8mu" path="res://Resources/Animations/Cursor.res" id="2_dg8ly"]
+
+[sub_resource type="Animation" id="Animation_okfde"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1s7rk"]
+_data = {
+"RESET": SubResource("Animation_okfde")
+}
+
+[node name="SmashSprite" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_lwvpt")
+flip_h = true
+hframes = 8
+vframes = 2
+frame = 4
+
+[node name="SmashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1s7rk"),
+"Cursor": ExtResource("2_dg8ly")
+}

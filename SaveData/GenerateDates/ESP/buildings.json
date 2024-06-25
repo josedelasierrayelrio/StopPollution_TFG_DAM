@@ -1,0 +1,72 @@
+{
+	"poor": {
+		"names": [
+			"El Lukfé", "La Taberna de Moe", "La Casa de los Gritos", "El dependiente de la tienda de comics",
+			"Central Perk", "Agujero de Gusano", "La Cantina de Mos Eisley", "Bellicans",
+			"El Cuartel general de los cazafantasmas", "El Café de la Esquina", "La vieja bodega hormiga", "El Pub del Fin del Mundo",
+			"La enesima trampa de JigSaw", "Bar de la Cabaña del Tío Tom", "El Nido de la Serpiente", "La tienda Embrujada",
+			"El Pozo de los Deseos de Shenron", "El Café de la Roca Negra", "La Posada del Prancing Pony", "La Casa de los Simpson",
+			"El Bar de Rick", "La Fábrica de Chocolate", "La Sala de los Menesteres", "La sala de la gran cabeza gris",
+			"Mcgee's Pub", "La Posada de Poniente", "El Salón de Moe's", "El Café de la Calle Peach",
+			"Flourish y Blotts", "El Halcón Milenario", "La Guarida del murcielago", "El Póney Pisador",
+			"El Bar de Cheers", "El laboratorio de Dexter", "El Café de la Felicidad", "Tienda de hadas",
+			"La Goonie Jaus", "La cerveza caliente", "El Salón de Belleza", "Ewoksada", "El Ewokes",
+			"Los matincribles", "El Bar de Sin Ciudad", "El Café de la Resurrección", "La Posada",
+			"El Bar de la Última Oportunidad", "La Cueva de Aquaman", "El café matas'trellas", "El Santuario",
+			"La cabaña del misterio",  "El Caldero Chorreante", "Café Central Perk", "Moe's Tavern", "Hogwarts", "La Comarca",
+			"La Posada del Dragón Verde", "Taberna del Cuervo",  
+			"Taberna del Oso", "Cervecería de la Corte Real", "Taberna del Rey", "Biblioteca de Hogwarts",
+			"Pizzería Krusty Burger", "Hogar del Guardián del Bosque", "Taberna del León", "Restaurante Buen Gusto", "Bosque Prohibido",
+			"La Plaza del Pueblo", "Posada del Camino Largo", "Restaurante Gula Gula", "Casa de los Gritos", "Taberna de la Colina",
+			"El Dragón Durmiente", "Café de la Calle Grove", "Casa del Alcalde", "Cervecería del Dragón", "La Madriguera",
+			"Taverna de las Estrellas", "La Casa del Lago", "La Caselfa", "Herrería de Hefesto", "El Pájaro Burlón",
+			"Bar de las Tres Escobas", "Almacén abandonado", "Antigua Arena Celestial", "Arena celestial", "Arena de Batalla de Perla", "Armería de Rose",
+			"Baño de Steven", "Boca del Hombre Muerto", "Campo de Batalla Gema",
+			"Campo de mini golf", "Campo mental de Malachite", "Campo mental de Stevonnie y Garnet", "Casa de Playa", "Casa rodante",
+			"Centro de comunicaciones", "Conservatorio de Steven", "Corazón de Cristal", "Cuarto de Amatista", "Cuarto de fundición",
+			"Cuarto de Perla", "Cuarto de pruebas", "Cuarto de Rose", "Cuarto de Sardonyx", "Cuevas Índigo",
+			"Cámara de extracción de Diamante Amarillo", "Cámara de extracción de Diamante Azul", "Cúpula marina", "Distorsión Galáctica", "Divertilandia",
+			"El desierto", "El norte", "Espada Submarina", "Figura del Templo",
+			"Fortaleza de arena", "Fuente de lágrimas", "Geoda", "Granero familiar DeMayo", "Guardería beta",
+			"Guardería Principal", "Hospitalite", "Isla Máscara", "Isla viviente", "Islas flotantes",
+			"Jardín de Diamante Rosa", "La Espiral Celestial", "La forja", "La gran rosquilla", "La mejor cafetería del mundo",
+			"Motel Keystone", "Palacio de los Diamantes", "Pequeña Escuela Madre", "Pequeño Planeta Madre", "Pescapizzas",
+			"Planeta Madre", "Planeta Tierra", "Red de teletransportación", "Residencia Maheswaran", "Vertedero de Rose",
+			"Zona Ringo", "Zoológico humano", "Cueva del Multi-Oso", "Cueva de los hombres", "Escuela obligatoria", "Tierra de los Muertos",
+			"Aldeas de púas", "Ciudad champiñón", "Quincuagésimo mundo de los muertos", "Casa'mpiro"
+		],
+		"types":[
+			"Casa", "Ca'", "Edificio", "Garaje", "Choza",
+			"Cabaña", "Apartamento", "Chabola", "Barraca", "Tugurio",
+			"Casucha", "Caserío", "Rancho", "Champa", "Cuchitril",
+			"Favela", "Albergue", "Choza de paja", "Cobertizo", "Refugio",
+			]
+	},
+	"rich": {
+		"names": [
+			"Wayne Enterprises", "Stark Industries", "LuthorCorp", "Umbrella Corporation",
+			"Tyrell Corporation", "Oscorp", "Weyland-Yutani Corporation", "BiffCo",
+			"The Daily Planet", "LexCorp", "Dynasty Enterprises", "Queen Consolidated",
+			"Spacely Sprockets", "Gringotts Wizarding Bank", "The Bluth Company", "The Umbrella Academy",
+			"KaibaCorp", "Dunder Mifflin", "The Walt Disney Company", "Acme Corporation",
+			"Monarch Solutions", "Strickland Propane", "Blue Sun Corporation", "The Soylent Corporation",
+			"Buy 'N' Large", "Zorg Industries", "The Galactic Empire", "LexCorp",
+			"Vought International", "Spencer Publications", "Goldman Industries", "The Guild of Calamitous Intent",
+			"The Sterling Cooper Advertising Agency", "The Weyland Consortium", "Aperture Science", "The Cheesecake Factory",
+			"The Very Big Corporation of America", "The Krusty Krab", "Strickland Propane", "The Planet Express Delivery Company",
+			"Bluth Company", "The Daily Bugle", "The Kraken Corporation", "Slater Corporation",
+			"Virtucon", "The Galactic Federation", "The Galactic Republic", "The New New York Sewer Corporation",
+			"The Tyrell Corporation", "The First Order", "Krusty Burger", "Banco Gringotts", 
+			"Base lunar", "Base Selva Lunar", "El reino de las pesadillas", "Globnar", "El bosque oscuro", 
+			"Trisolaris", "Reino chuche", "Reino Hot Dog", "Espacio Grumoso", "Reino Limo", "El Muscutillo",
+			"Reino de fuego", "Castillo de Limoncio", "Castagrio"
+			],
+		"types": [
+			"Hacienda", "Edificio",  "Condominio", 
+			"Corporación", "Industria", "Conglomerado", "Mansión", "Castillo",
+			"Palacio", "Penthouse", "Residencia", "Villa", "Hacienda",
+			"Domus", "Torreón", "Finca", "Casona", "Chalet",
+			"Caserón", "Torre", "Edificio de lujo", "Exclusivio", "Lujoteca"
+			]
+	}
+}

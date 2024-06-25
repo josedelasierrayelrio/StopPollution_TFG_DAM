@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://byu1d4ei6j6su"]
+
+[ext_resource type="Script" path="res://Scripts/Managers/statistics_manager.gd" id="1_lqohq"]
+
+[node name="StatisticsManager" type="Node" groups=["statistics"]]
+script = ExtResource("1_lqohq")
+
+[node name="YearsTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[connection signal="timeout" from="YearsTimer" to="." method="_on_years_timer_timeout"]

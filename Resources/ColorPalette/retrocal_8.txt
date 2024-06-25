@@ -1,0 +1,13 @@
+;paint.net Palette File
+;Downloaded from Lospec.com/palette-list
+;Palette Name: retrocal-8
+;Description: 
+;Colors: 8
+FF 6eb8a8 # Azul celeste
+FF 2a584f # Verde oscurito
+FF 74a33f # Verde 
+FF fcffc0 # Amarillo
+FF c6505a # Rojo
+FF 2f142f # Rojo oscurito
+FF 774448 # Marron 
+FF ee9c5d # Naranja

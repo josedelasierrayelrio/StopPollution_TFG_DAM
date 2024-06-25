@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://o0if5egfwut4"]
+
+[ext_resource type="Script" path="res://Scripts/managers/game_manager.gd" id="1_civ6e"]
+[ext_resource type="PackedScene" uid="uid://bg2ohhatacu6c" path="res://Scenes/UI/ui.tscn" id="2_c0uml"]
+[ext_resource type="PackedScene" uid="uid://byu1d4ei6j6su" path="res://Scenes/managers/statistics_manager.tscn" id="3_ffek1"]
+[ext_resource type="Shader" path="res://Scripts/shaders/chromatic_aberration.gdshader" id="3_jxogs"]
+[ext_resource type="PackedScene" uid="uid://c0u0wjktdxrmo" path="res://Scenes/managers/mouse_manager.tscn" id="4_8l58j"]
+[ext_resource type="PackedScene" uid="uid://c30hichtn61t1" path="res://Scenes/managers/camera_2d.tscn" id="5_0qqa3"]
+[ext_resource type="PackedScene" uid="uid://cl76bcgy7g0e8" path="res://Scenes/managers/manager_entities.tscn" id="6_p8m16"]
+[ext_resource type="PackedScene" uid="uid://ls1sa1vyqjkn" path="res://Scenes/tilemap.tscn" id="7_6qnyg"]
+[ext_resource type="PackedScene" uid="uid://c47wwyove4gvl" path="res://Scenes/entities/birth_room.tscn" id="9_8tkdm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6v7py"]
+shader = ExtResource("3_jxogs")
+shader_parameter/r_displacement = Vector2(3, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-3, 0)
+
+[node name="Game" type="Node2D" groups=["game"]]
+script = ExtResource("1_civ6e")
+
+[node name="UI" parent="." instance=ExtResource("2_c0uml")]
+
+[node name="Aberración chromatica" type="ColorRect" parent="UI"]
+visible = false
+light_mask = 32
+visibility_layer = 32
+material = SubResource("ShaderMaterial_6v7py")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -305.0
+offset_top = -199.0
+offset_right = 361.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0.207843, 0.207843, 0.25098, 0.47451)
+
+[node name="StatisticsManager" parent="." instance=ExtResource("3_ffek1")]
+pollution_change_rate = 0.5
+
+[node name="MouseManager" parent="." instance=ExtResource("4_8l58j")]
+
+[node name="Camera2D" parent="." instance=ExtResource("5_0qqa3")]
+position = Vector2(656, 352)
+drag_horizontal_enabled = false
+drag_vertical_enabled = false
+multiplier_speed = 5.0
+zoom_speed = 8.0
+edge_margin = 40
+
+[node name="ManagerEntities" parent="." instance=ExtResource("6_p8m16")]
+limit_initial_spawn_puf = 40
+spawn_time_to_rich = 5.0
+
+[node name="TileMap" parent="." instance=ExtResource("7_6qnyg")]
+
+[node name="BirthRoom" parent="." instance=ExtResource("9_8tkdm")]
+position = Vector2(640, -56)
+scale = Vector2(2, 2)
+
+[connection signal="change_selected_pufs" from="MouseManager" to="StatisticsManager" method="_on_mouse_manager_change_selected_pufs"]
+[connection signal="born_a_poor" from="ManagerEntities" to="StatisticsManager" method="_on_manager_pufs_born_a_poor"]
+[connection signal="born_a_rich" from="ManagerEntities" to="StatisticsManager" method="_on_manager_pufs_born_a_rich"]
+[connection signal="born_puf" from="ManagerEntities" to="TileMap" method="_on_manager_pufs_born_puf"]
+[connection signal="dead_a_poor" from="ManagerEntities" to="StatisticsManager" method="_on_manager_pufs_dead_a_poor"]
+[connection signal="dead_a_rich" from="ManagerEntities" to="StatisticsManager" method="_on_manager_pufs_dead_a_rich"]
+[connection signal="mouse_over_puf" from="ManagerEntities" to="MouseManager" method="_on_manager_entities_mouse_over_puf"]
+[connection signal="time_to_birth" from="ManagerEntities" to="StatisticsManager" method="_on_manager_pufs_time_to_birth"]
+[connection signal="time_to_rich" from="ManagerEntities" to="StatisticsManager" method="_on_manager_pufs_time_to_rich"]
+[connection signal="total_draggin_pufs" from="ManagerEntities" to="MouseManager" method="_on_manager_entities_total_draggin_pufs"]
+[connection signal="ocuppied_coordinates" from="TileMap" to="ManagerEntities" method="_on_tile_map_ocuppied_coordinates"]
+[connection signal="spawn_coordinates" from="TileMap" to="ManagerEntities" method="_on_tile_map_spawn_coordinates"]

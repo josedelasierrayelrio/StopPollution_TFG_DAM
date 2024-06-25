@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3 uid="uid://ydd02kwkiq5t"]
+
+[ext_resource type="Texture2D" uid="uid://c61jv8s2d41o4" path="res://Resources/UI/background_gameover.png" id="2_8ag8a"]
+[ext_resource type="Script" path="res://Scripts/managers/start_game_over.gd" id="2_62gfs"]
+[ext_resource type="Shader" path="res://Scripts/shaders/chromatic_aberration.gdshader" id="2_jqunb"]
+[ext_resource type="PackedScene" uid="uid://ls1sa1vyqjkn" path="res://Scenes/tilemap.tscn" id="3_fpjca"]
+[ext_resource type="LabelSettings" uid="uid://8078t72si18o" path="res://Resources/tres/title_ui_label_settings.tres" id="3_up3um"]
+[ext_resource type="PackedScene" uid="uid://b4xp0w52hwj68" path="res://Scenes/entities/puf.tscn" id="4_2pgad"]
+[ext_resource type="LabelSettings" uid="uid://vvygoxaewh6j" path="res://Resources/tres/secundary_label_settings.tres" id="4_rnek6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_abmnm"]
+shader = ExtResource("2_jqunb")
+shader_parameter/r_displacement = Vector2(2, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(2, 0)
+
+[node name="StartGameOver" type="Node2D"]
+light_mask = 32
+visibility_layer = 32
+texture_filter = 1
+script = ExtResource("2_62gfs")
+
+[node name="CLSGO" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CLSGO"]
+visible = false
+modulate = Color(1, 1, 1, 0.12549)
+self_modulate = Color(1, 1, 1, 0.203922)
+light_mask = 32
+visibility_layer = 32
+texture_filter = 1
+material = SubResource("ShaderMaterial_abmnm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -357.0
+offset_top = -260.0
+offset_right = 309.0
+offset_bottom = 121.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.207843, 0.207843, 0.25098, 0.47451)
+
+[node name="FlowContainer" type="VBoxContainer" parent="CLSGO"]
+light_mask = 32
+visibility_layer = 32
+z_index = -1
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HeaderContainer" type="BoxContainer" parent="CLSGO/FlowContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleLabel" type="Label" parent="CLSGO/FlowContainer/HeaderContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Stop Pollution"
+label_settings = ExtResource("3_up3um")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BodyContainer" type="BoxContainer" parent="CLSGO/FlowContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+vertical = true
+
+[node name="FoodContainer" type="BoxContainer" parent="CLSGO/FlowContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+vertical = true
+
+[node name="AuthorLabel" type="Label" parent="CLSGO/FlowContainer/FoodContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "by José Pedro"
+label_settings = ExtResource("4_rnek6")
+
+[node name="PressLabel" type="Label" parent="CLSGO/FlowContainer/FoodContainer"]
+texture_filter = 1
+layout_mode = 2
+
+[node name="IdleLayer" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" parent="IdleLayer" instance=ExtResource("4_2pgad")]
+position = Vector2(443, 398)
+
+[node name="Sprite2D" type="Sprite2D" parent="IdleLayer"]
+modulate = Color(1, 1, 1, 0.392157)
+light_mask = 16
+visibility_layer = 16
+z_index = 4
+position = Vector2(640, 353)
+rotation = -3.14159
+scale = Vector2(83.2378, -56.7984)
+texture = ExtResource("2_8ag8a")
+
+[node name="TileMap" parent="IdleLayer" instance=ExtResource("3_fpjca")]

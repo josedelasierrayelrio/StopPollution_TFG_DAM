@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dscjv5p181cqc"]
+
+[ext_resource type="FontFile" uid="uid://bsyvuiskmanxx" path="res://Resources/Fonts/GrapeSoda.ttf" id="1_nhvdr"]
+
+[resource]
+font = ExtResource("1_nhvdr")
+font_size = 32
+font_color = Color(0.776471, 0.313726, 0.352941, 1)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcg4s4jsk0qyj"]
+
+[ext_resource type="Script" path="res://Scripts/managers/warning.gd" id="1_dxbyw"]
+
+[node name="warning" type="CanvasLayer"]
+script = ExtResource("1_dxbyw")
+
+[node name="FlowContainer" type="FlowContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="AuthorLabel" type="Label" parent="FlowContainer"]
+layout_mode = 2
+
+[node name="PressLabel" type="Label" parent="FlowContainer"]
+layout_mode = 2
+
+[node name="WarningLabel" type="Label" parent="FlowContainer"]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
